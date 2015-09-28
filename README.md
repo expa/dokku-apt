@@ -10,8 +10,12 @@ This is mostly useful for instances where you have an app that depends on packag
 
 On your dokku server:
 ```sh
+# dokku 0.3.x
 git clone https://github.com/F4-Group/dokku-apt /var/lib/dokku/plugins/dokku-apt
 dokku plugins-install
+
+# dokku 0.4+
+dokku plugin:install https://github.com/F4-Group/dokku-apt
 ```
 
 When you deploy your project, the dokku-apt plugin will install according to your project's `apt-repositories` and `apt-packages` files. You should store these files in your projects root as the docker container will copy your project to its /app directory. This is where the dokku-apt plugin looks for `apt-repositories` and `apt-packages`.
